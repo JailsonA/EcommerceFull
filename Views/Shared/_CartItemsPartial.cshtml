@@ -1,0 +1,41 @@
+﻿@model List<EcommerceFull.Models.CartProductInfoModel>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+@{
+    int userID = Convert.ToInt32(HttpContextAccessor.HttpContext.Session.GetString("UserID"));
+    float total = 0;
+}
+
+@if (userID != null)
+{
+    <ul class="header-cart-wrapitem w-full">
+        @if (ViewBag.Cart != null)
+        {
+            @foreach (var cart in ViewBag.Cart)
+            {
+                <li class="header-cart-item flex-w flex-t m-b-12">
+                    <div data-user-id="@userID" data-product-id="@cart.ProductId" data-quantidade-qt="0" class="add-to-cart header-cart-item-img">
+                        <img src="@cart.ImgUrl" alt="IMG">
+                    </div>
+                    <div class="header-cart-item-txt p-t-8">
+                        <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                            @cart.Name
+                        </a>
+                        <span class="header-cart-item-info">
+                            @cart.Quantity X @cart.Price
+                            @{
+                                total += cart.Quantity * cart.Price;
+                            }
+                        </span>
+                    </div>
+                </li>
+            }
+        }
+        else
+        {
+            <li class="header-cart-item flex-w flex-t m-b-12">
+                <h3>Cart is empty</h3>
+            </li>
+        }
+    </ul>
+}
+

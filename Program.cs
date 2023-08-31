@@ -1,5 +1,6 @@
 using EcommerceFull.Data;
 using Microsoft.EntityFrameworkCore;
+using PayPal.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 // add DBContext 
 builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//add DBLayer
+builder.Services.AddScoped<DBLayer>();
+//add DBAutent
+builder.Services.AddScoped<DBAutent>();
+//add DBUtils
+builder.Services.AddScoped<DBUtils>();
+//add section
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -18,6 +28,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 

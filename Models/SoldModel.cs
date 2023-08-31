@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BibliotecaXPTO_MVC.Model
+namespace EcommerceFull.Models
 {
     public class SoldModel
     {
@@ -8,9 +8,6 @@ namespace BibliotecaXPTO_MVC.Model
         public int SoldID { get; set; }
         public int Quantity { get; set; }
         public float Total { get; set; }
-
-
-
 
         public int UserID { get; set; }
         public UserModel User { get; set; }

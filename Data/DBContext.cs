@@ -1,4 +1,4 @@
-﻿using BibliotecaXPTO_MVC.Model;
+﻿using EcommerceFull.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceFull.Data

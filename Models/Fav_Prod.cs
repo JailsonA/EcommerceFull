@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BibliotecaXPTO_MVC.Model
+namespace EcommerceFull.Models
 {
     public class Fav_Prod
     {

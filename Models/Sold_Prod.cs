@@ -1,4 +1,4 @@
-﻿namespace BibliotecaXPTO_MVC.Model
+﻿namespace EcommerceFull.Models
 {
     public class Sold_Prod
     {
